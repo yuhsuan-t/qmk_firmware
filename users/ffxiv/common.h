@@ -10,7 +10,6 @@ enum custom_keycodes {
   BRACES = SAFE_RANGE,
   PRNTS_9,
   QUOTES,
-  EQL_PLS,
   ALT_TAB,
   SELWORD,
   CPLINE,

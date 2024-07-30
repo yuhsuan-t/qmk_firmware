@@ -40,28 +40,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
       }
       return false;
 
-    case QUOTES:  // Types "" or '' and puts cursor between braces.
+    case QUOTES:  // Types "" and puts cursor between quotes if shift pressed, else type '.
       if (record->event.pressed) {
         clear_oneshot_mods();  // Temporarily disable mods.
         unregister_mods(MOD_MASK_CSAG);
         if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
           SEND_STRING("\"\"");
+          tap_code(KC_LEFT);  // Move cursor between braces.
         } else {
-          SEND_STRING("''");
-        }
-        tap_code(KC_LEFT);  // Move cursor between braces.
-        register_mods(mods);  // Restore mods.
-      }
-      return false;
-
-    case EQL_PLS:  // Types " + " if shift pressed, else " = ".
-      if (record->event.pressed) {
-        clear_oneshot_mods();  // Temporarily disable mods.
-        unregister_mods(MOD_MASK_CSAG);
-        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-          SEND_STRING(" + ");
-        } else {
-          SEND_STRING(" = ");
+          SEND_STRING("'");
         }
         register_mods(mods);  // Restore mods.
       }
