@@ -16,6 +16,12 @@ const uint16_t PROGMEM f5r[] = {KC_6, KC_9, COMBO_END};
 const uint16_t PROGMEM f6r[] = {KC_7, KC_0, COMBO_END};
 const uint16_t PROGMEM f7r[] = {KC_2, KC_7, COMBO_END};
 const uint16_t PROGMEM f8r[] = {KC_8, KC_3, COMBO_END};
+const uint16_t PROGMEM ytseng[] = {KC_Y, KC_T, COMBO_END};
+const uint16_t PROGMEM yuhsuan[] = {KC_Y, KC_H, COMBO_END};
+const uint16_t PROGMEM thanks[] = {KC_T, KC_K, COMBO_END};
+const uint16_t PROGMEM trtllm[] = {KC_T, KC_L, COMBO_END};
+const uint16_t PROGMEM trtllm_serve[] = {KC_T, KC_L, KC_S, COMBO_END};
+const uint16_t PROGMEM trtllm_bench[] = {KC_T, KC_L, KC_B, COMBO_END};
 
 enum combo_events {
     COMBO_F2,
@@ -32,6 +38,12 @@ enum combo_events {
     COMBO_F6r,
     COMBO_F7r,
     COMBO_F8r,
+    COMBO_YTSENG,
+    COMBO_YUHSUAN,
+    COMBO_THANKS,
+    COMBO_TRTLLM,
+    COMBO_TRTLLM_SERVE,
+    COMBO_TRTLLM_BENCH,
 };
 
 combo_t key_combos[] = {
@@ -49,4 +61,10 @@ combo_t key_combos[] = {
     [COMBO_F6r] = COMBO(f6r, KC_F6),
     [COMBO_F7r] = COMBO(f7r, KC_F7),
     [COMBO_F8r] = COMBO(f8r, KC_F8),
+    [COMBO_YTSENG] = COMBO(ytseng, YTSENG),
+    [COMBO_YUHSUAN] = COMBO(yuhsuan, YUHSUAN),
+    [COMBO_THANKS] = COMBO(thanks, THANKS),
+    [COMBO_TRTLLM] = COMBO(trtllm, TRTLLM),
+    [COMBO_TRTLLM_SERVE] = COMBO(trtllm_serve, TRTLLM_SERVE),
+    [COMBO_TRTLLM_BENCH] = COMBO(trtllm_bench, TRTLLM_BENCH),
 };

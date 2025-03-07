@@ -13,5 +13,13 @@ enum custom_keycodes {
   ALT_TAB,
   SELWORD,
   CPLINE,
-  PLINE
+  PLINE,
+  YTSENG,
+  YUHSUAN,
+  THANKS,
+  TRTLLM,
+  TRTLLM_SERVE,
+  TRTLLM_BENCH,
+  UDRSCR,
+  LOGOUT,
 };
