@@ -51,12 +51,15 @@ enum layer {
 };
 
 // Layer toggle
-#define MIN_NAV LT(_NAV, KC_MINS)
+#define UDS_NAV LT(_NAV, UDRSCR)
 #define SPC_NAV LT(_NAV, KC_SPC)
-#define GRV_UTL LT(_UTIL, KC_GRV)
+#define MIN_UTL LT(_UTIL, KC_MINS)
 #define MO_UTIL MO(_UTIL)
 #define EQL_NUM LT(_NUMPAD, KC_EQL)
 #define EN_NUM LT(_NUMPAD, KC_ENT)
+#define MO_NAV MO(_NAV)
+#define MO_NUM MO(_NUMPAD)
+// #define TG_NUM TG(_NUMPAD)
 // utils
 #define CUT C(KC_X)
 #define COPY C(KC_C)
@@ -69,16 +72,16 @@ enum layer {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_HANDS_DOWN] = LAYOUT(
-                 KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    PRNTS_9, KC_0,    KC_BSLS,
-                 KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    BRACES,
-        XXXXXXX, KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    TG_NUM,  TG_FF14, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, QUOTES,  KC_RBRC,
-                 KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, KC_SPC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RCTL,
-                                   KC_LGUI, ALT_TAB, MO_UTIL, SPC_NAV, EN_NUM,  EQL_NUM, MIN_NAV, GRV_UTL, KC_TAB,  ALT_TAB
+                 KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
+                 KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
+        XXXXXXX, KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    LOGOUT,  TG_FF14, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_GRV,
+                 KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RBRC,
+                                   KC_LGUI, ALT_TAB, MO_UTIL, SPC_NAV, EN_NUM,  MO_NUM,  MO_NAV,  MIN_UTL, XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT(
                  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                 KC_PGUP, XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX,                   XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX, KC_PGUP,
-        XXXXXXX, KC_PGDN, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  _______, _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  KC_PGDN, XXXXXXX,
+                 _______, XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX,                   XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX, KC_PGUP,
+        _______, _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  _______, _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  KC_PGDN, XXXXXXX,
                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
@@ -90,10 +93,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_NUMPAD] = LAYOUT(
-                 _______, XXXXXXX, KC_NUM,  KC_PSLS, KC_PAST, XXXXXXX,                   XXXXXXX, KC_NUM,  KC_PSLS, KC_PAST, XXXXXXX, XXXXXXX,
-                 XXXXXXX, KC_PEQL, KC_P7,   KC_P8,   KC_P9,   KC_PMNS,                   KC_PEQL, KC_P7,   KC_P8,   KC_P9,   KC_PMNS, XXXXXXX,
-        XXXXXXX, XXXXXXX, KC_PDOT, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, _______, _______, KC_PDOT, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, XXXXXXX, XXXXXXX,
-                 XXXXXXX, KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PENT, _______, _______, KC_P0,   KC_P1,   KC_P2,   KC_P3,   KC_PENT, _______,
+                 _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                 _______, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   XXXXXXX,                   XXXXXXX, KC_7,    KC_8,    KC_9,    UDRSCR,  XXXXXXX,
+        _______, _______, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   XXXXXXX, _______, _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_EQL,  KC_MINS, XXXXXXX,
+                 XXXXXXX, KC_P0,   KC_P1,   KC_P2,   KC_P3,   XXXXXXX, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_SLSH, XXXXXXX,
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_FFXIV] = LAYOUT(
@@ -107,11 +110,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_HANDS_DOWN] = { ENCODER_CCW_CW(KC_DOWN, KC_UP), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
-    [_NAV]        = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
-    [_UTIL]       = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
-    [_NUMPAD]     = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
-    [_FFXIV]      = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN) },
+    [_HANDS_DOWN] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [_NAV]        = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [_UTIL]       = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [_NUMPAD]     = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [_FFXIV]      = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
 };
 #endif
 // void encoder_update_user(uint8_t index, bool clockwise) {

@@ -6,53 +6,53 @@ uint16_t alt_tab_timer = 0;
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  const uint8_t mods = get_mods();
-  const uint8_t oneshot_mods = get_oneshot_mods();
+  // const uint8_t mods = get_mods();
+  // const uint8_t oneshot_mods = get_oneshot_mods();
 
   switch (keycode) {
-    case BRACES:  // Types [], {}, or <> and puts cursor between braces.
-      if (record->event.pressed) {
-        clear_oneshot_mods();  // Temporarily disable mods.
-        unregister_mods(MOD_MASK_CSAG);
-        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-          SEND_STRING("{}");
-        } else if ((mods | oneshot_mods) & MOD_MASK_CTRL) {
-          SEND_STRING("<>");
-        } else {
-          SEND_STRING("[]");
-        }
-        tap_code(KC_LEFT);  // Move cursor between braces.
-        register_mods(mods);  // Restore mods.
-      }
-      return false;
+    // case BRACES:  // Types [], {}, or <> and puts cursor between braces.
+    //   if (record->event.pressed) {
+    //     clear_oneshot_mods();  // Temporarily disable mods.
+    //     unregister_mods(MOD_MASK_CSAG);
+    //     if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+    //       SEND_STRING("{}");
+    //     } else if ((mods | oneshot_mods) & MOD_MASK_CTRL) {
+    //       SEND_STRING("<>");
+    //     } else {
+    //       SEND_STRING("[]");
+    //     }
+    //     tap_code(KC_LEFT);  // Move cursor between braces.
+    //     register_mods(mods);  // Restore mods.
+    //   }
+    //   return false;
 
-    case PRNTS_9:  // Types () and puts cursor between braces if shift pressed, else type 9.
-      if (record->event.pressed) {
-        clear_oneshot_mods();  // Temporarily disable mods.
-        unregister_mods(MOD_MASK_CSAG);
-        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-          SEND_STRING("()");
-          tap_code(KC_LEFT);  // Move cursor between braces.
-        } else {
-          SEND_STRING("9");
-        }
-        register_mods(mods);  // Restore mods.
-      }
-      return false;
+    // case PRNTS_9:  // Types () and puts cursor between braces if shift pressed, else type 9.
+    //   if (record->event.pressed) {
+    //     clear_oneshot_mods();  // Temporarily disable mods.
+    //     unregister_mods(MOD_MASK_CSAG);
+    //     if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+    //       SEND_STRING("()");
+    //       tap_code(KC_LEFT);  // Move cursor between braces.
+    //     } else {
+    //       SEND_STRING("9");
+    //     }
+    //     register_mods(mods);  // Restore mods.
+    //   }
+    //   return false;
 
-    case QUOTES:  // Types "" and puts cursor between quotes if shift pressed, else type '.
-      if (record->event.pressed) {
-        clear_oneshot_mods();  // Temporarily disable mods.
-        unregister_mods(MOD_MASK_CSAG);
-        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-          SEND_STRING("\"\"");
-          tap_code(KC_LEFT);  // Move cursor between braces.
-        } else {
-          SEND_STRING("'");
-        }
-        register_mods(mods);  // Restore mods.
-      }
-      return false;
+    // case QUOTES:  // Types "" and puts cursor between quotes if shift pressed, else type '.
+    //   if (record->event.pressed) {
+    //     clear_oneshot_mods();  // Temporarily disable mods.
+    //     unregister_mods(MOD_MASK_CSAG);
+    //     if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+    //       SEND_STRING("\"\"");
+    //       tap_code(KC_LEFT);  // Move cursor between braces.
+    //     } else {
+    //       SEND_STRING("'");
+    //     }
+    //     register_mods(mods);  // Restore mods.
+    //   }
+    //   return false;
 
     case ALT_TAB: // Tabbing between windows for 1 sec
       if (record->event.pressed) {
@@ -67,21 +67,73 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
       }
       break;
 
-    case SELWORD:  // Selects the current word under the cursor.
+    // case SELWORD:  // Selects the current word under the cursor.
+    //   if (record->event.pressed) {
+    //     SEND_STRING(SS_LCTL(SS_TAP(X_RGHT) SS_LSFT(SS_TAP(X_LEFT))));
+    //   }
+    //   return false;
+
+    // case CPLINE:  // Copies the current line.
+    //   if (record->event.pressed) {
+    //     SEND_STRING(SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END)) SS_LCTL(SS_TAP(X_C)));
+    //   }
+    //   return false;
+
+    // case PLINE:  // Pastes the copied content in new line.
+    //   if (record->event.pressed) {
+    //     SEND_STRING(SS_TAP(X_END) SS_TAP(X_ENT) SS_LCTL(SS_TAP(X_V)));
+    //   }
+    //   return false;
+
+    case UDRSCR:
       if (record->event.pressed) {
-        SEND_STRING(SS_LCTL(SS_TAP(X_RGHT) SS_LSFT(SS_TAP(X_LEFT))));
+        SEND_STRING("_");
       }
       return false;
 
-    case CPLINE:  // Copies the current line.
+    case LOGOUT:
       if (record->event.pressed) {
-        SEND_STRING(SS_TAP(X_HOME) SS_LSFT(SS_TAP(X_END)) SS_LCTL(SS_TAP(X_C)));
+        SEND_STRING(SS_LCTL(SS_LALT(SS_TAP(X_DEL))));
       }
       return false;
 
-    case PLINE:  // Pastes the copied content in new line.
+    case YTSENG:  // types ytseng
       if (record->event.pressed) {
-        SEND_STRING(SS_TAP(X_END) SS_TAP(X_ENT) SS_LCTL(SS_TAP(X_V)));
+        SEND_STRING("ytseng");
+      }
+      return false;
+
+    case YUHSUAN:  // types Yu-Hsuan
+      if (record->event.pressed) {
+        SEND_STRING("Yu-Hsuan");
+      }
+      return false;
+
+    case THANKS:  // types Thanks!
+      if (record->event.pressed) {
+        SEND_STRING("Thanks!");
+      }
+      return false;
+
+    case TRTLLM:  // types TRTLLM when shift is pressed, else types trtllm
+      if (record->event.pressed) {
+        if (get_mods() & MOD_MASK_SHIFT) {
+          SEND_STRING("TRTLLM");
+        } else {
+          SEND_STRING("trtllm");
+        }
+      }
+      return false;
+
+    case TRTLLM_SERVE:
+      if (record->event.pressed) {
+        SEND_STRING("trtllm-serve");
+      }
+      return false;
+
+    case TRTLLM_BENCH:
+      if (record->event.pressed) {
+        SEND_STRING("trtllm-bench");
       }
       return false;
 
