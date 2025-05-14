@@ -91,6 +91,78 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
       }
       return false;
 
+    case STAR:
+      if (record->event.pressed) {
+        SEND_STRING("*");
+      }
+      return false;
+
+    case EQL:
+      if (record->event.pressed) {
+        SEND_STRING("=");
+      }
+      return false;
+
+    case PLUS:
+      if (record->event.pressed) {
+        SEND_STRING("+");
+      }
+      return false;
+
+    case MINUS:
+      if (record->event.pressed) {
+        SEND_STRING("-");
+      }
+      return false;
+
+    case SLASH:
+      if (record->event.pressed) {
+        SEND_STRING("/");
+      }
+      return false;
+
+    case LSBR:
+      if (record->event.pressed) {
+        SEND_STRING("[");
+      }
+      return false;
+
+    case RSBR:
+      if (record->event.pressed) {
+        SEND_STRING("]");
+      }
+      return false;
+
+    case LCBR:
+      if (record->event.pressed) {
+        SEND_STRING("{");
+      }
+      return false;
+
+    case RCBR:
+      if (record->event.pressed) {
+        SEND_STRING("}");
+      }
+      return false;
+
+    case LPRN:
+      if (record->event.pressed) {
+        SEND_STRING("(");
+      }
+      return false;
+
+    case RPRN:
+      if (record->event.pressed) {
+        SEND_STRING(")");
+      }
+      return false;
+
+    case QUEST:
+      if (record->event.pressed) {
+        SEND_STRING("?");
+      }
+      return false;
+
     case LOGOUT:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTL(SS_LALT(SS_TAP(X_DEL))));
@@ -105,7 +177,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
     case YUHSUAN:  // types Yu-Hsuan
       if (record->event.pressed) {
-        SEND_STRING("Yu-Hsuan");
+        if (get_mods() & MOD_MASK_SHIFT) {
+          SEND_STRING("Yu-Hsuan");
+        } else {
+          SEND_STRING("yuhsuan");
+        }
       }
       return false;
 

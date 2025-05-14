@@ -66,10 +66,10 @@ enum layer {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_HANDS_DOWN] = LAYOUT(
-                 KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
-                 KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-                 KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, KC_ESC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RBRC,
-                                   KC_LGUI, ALT_TAB, MO_UTIL, SPC_NAV, EN_NUM,  MO_NUM,  MO_NAV,  MIN_UTL, KC_BSLS, KC_GRV
+                 KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_GRV,
+                 KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SLSH, KC_QUOT,
+                 KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, ALT_TAB, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SCLN, KC_BSLS,
+                                   KC_LGUI, KC_ESC,  MO_UTIL, SPC_NAV, EN_NUM,  MO_NUM,  MO_NAV,  MIN_UTL, XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT(
                  _______, XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX,                   XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX, KC_PGUP,
@@ -78,15 +78,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_UTIL] = LAYOUT(
-                 _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SAVE,                      SAVE,    XXXXXXX, XXXXXXX, SELWORD, XXXXXXX, XXXXXXX,
-                 _______, XXXXXXX, UNDO,    CUT,     COPY,    PASTE,                     PASTE,   COPY,    CUT,     UNDO,    XXXXXXX, XXXXXXX,
-                 _______, XXXXXXX, BY_RNWN, BY_FPNE, BY_HSPL, BY_CLYT, _______, _______, BY_CLYT, BY_HSPL, BY_FPNE, BY_RNWN, XXXXXXX, XXXXXXX,
+                 _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SAVE,                      SAVE,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                 _______, XXXXXXX, BY_NWIN, CUT,     COPY,    PASTE,                     PASTE,   COPY,    CUT,     BY_NWIN, XXXXXXX, XXXXXXX,
+                 _______, XXXXXXX, BY_RNWN, BY_FPNE, BY_CLYT, BY_HSPL, _______, _______, BY_HSPL, BY_CLYT, BY_FPNE, BY_RNWN, XXXXXXX, XXXXXXX,
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_NUMPAD] = LAYOUT(
-                 _______, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   XXXXXXX,                   XXXXXXX, KC_7,    KC_8,    KC_9,    UDRSCR,  XXXXXXX,
-                 _______, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   XXXXXXX,                   KC_DOT,  KC_4,    KC_5,    KC_6,    KC_EQL,  KC_MINS,
-                 XXXXXXX, KC_P0,   KC_P1,   KC_P2,   KC_P3,   XXXXXXX, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_SLSH, XXXXXXX,
+                 _______, XXXXXXX, LPRN,    XXXXXXX, RPRN,   XXXXXXX,                   EQL,     KC_7,    KC_8,    KC_9,    UDRSCR,  XXXXXXX,
+                 _______, XXXXXXX, LSBR,    XXXXXXX, RSBR,   XXXXXXX,                   KC_DOT,  KC_4,    KC_5,    KC_6,    SLASH,   MINUS,
+                 XXXXXXX, XXXXXXX, LCBR,    XXXXXXX, RCBR,   XXXXXXX, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    PLUS,    STAR,
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),    
 };
