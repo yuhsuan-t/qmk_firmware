@@ -14,12 +14,13 @@ enum layer {
 };
 
 // Layer toggle
-#define UDS_NAV LT(_NAV, UDRSCR)
+#define UDS_NAV LT(_NAV, KC_UNDS)
 #define SPC_NAV LT(_NAV, KC_SPC)
-#define MIN_UTL LT(_UTIL, KC_MINS)
+#define MIN_UTL LT(_UTIL, MINUS)
 #define MO_UTIL MO(_UTIL)
 #define EQL_NUM LT(_NUMPAD, KC_EQL)
 #define EN_NUM LT(_NUMPAD, KC_ENT)
+#define TAB_NUM LT(_NUMPAD, KC_TAB)
 #define MO_NAV MO(_NAV)
 #define MO_NUM MO(_NUMPAD)
 
@@ -66,28 +67,28 @@ enum layer {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_HANDS_DOWN] = LAYOUT(
-                 KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_GRV,
-                 KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SLSH, KC_QUOT,
-                 KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, ALT_TAB, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SCLN, KC_BSLS,
-                                   KC_LGUI, KC_ESC,  MO_UTIL, SPC_NAV, EN_NUM,  MO_NUM,  MO_NAV,  MIN_UTL, XXXXXXX, XXXXXXX
+                 TAB_NUM, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_GRV,
+                 KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,    KC_K,    KC_L,    KC_SLSH, KC_COLN,
+                 KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, LOGOUT,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SCLN, KC_BSLS,
+                                   KC_LGUI, KC_ESC,  MO_UTIL, SPC_NAV, KC_ENT,  MINUS,   MO_NAV,  KC_UNDS, XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT(
                  _______, XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX,                   XXXXXXX, KC_HOME, KC_UP,   KC_END,  XXXXXXX, KC_PGUP,
                  _______, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,                    KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  KC_PGDN,
                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                                   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+                                   _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX
     ),
     [_UTIL] = LAYOUT(
                  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SAVE,                      SAVE,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                  _______, XXXXXXX, BY_NWIN, CUT,     COPY,    PASTE,                     PASTE,   COPY,    CUT,     BY_NWIN, XXXXXXX, XXXXXXX,
                  _______, XXXXXXX, BY_RNWN, BY_FPNE, BY_CLYT, BY_HSPL, _______, _______, BY_HSPL, BY_CLYT, BY_FPNE, BY_RNWN, XXXXXXX, XXXXXXX,
-                                   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+                                   _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX
     ),
     [_NUMPAD] = LAYOUT(
-                 _______, XXXXXXX, LPRN,    XXXXXXX, RPRN,   XXXXXXX,                   EQL,     KC_7,    KC_8,    KC_9,    UDRSCR,  XXXXXXX,
-                 _______, XXXXXXX, LSBR,    XXXXXXX, RSBR,   XXXXXXX,                   KC_DOT,  KC_4,    KC_5,    KC_6,    SLASH,   MINUS,
-                 XXXXXXX, XXXXXXX, LCBR,    XXXXXXX, RCBR,   XXXXXXX, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    PLUS,    STAR,
-                                   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+                 _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_EQL,  KC_7,    KC_8,    KC_9,    KC_ASTR, KC_PLUS,
+                 _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_DOT,  KC_4,    KC_5,    KC_6,    KC_PSLS, MINUS,
+                 XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    XXXXXXX, XXXXXXX,
+                                   _______, _______, _______, _______, _______, _______, _______, KC_UNDS, XXXXXXX, XXXXXXX
     ),    
 };
 
