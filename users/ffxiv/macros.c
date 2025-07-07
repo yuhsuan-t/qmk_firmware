@@ -6,8 +6,8 @@ uint16_t alt_tab_timer = 0;
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  // const uint8_t mods = get_mods();
-  // const uint8_t oneshot_mods = get_oneshot_mods();
+  const uint8_t mods = get_mods();
+  const uint8_t oneshot_mods = get_oneshot_mods();
 
   switch (keycode) {
     // case BRACES:  // Types [], {}, or <> and puts cursor between braces.
@@ -85,9 +85,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     //   }
     //   return false;
 
-    case UDRSCR:
+    case MINUS:
       if (record->event.pressed) {
-        SEND_STRING("_");
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
+        SEND_STRING("-");
+        register_mods(mods);  // Restore mods.
+      }
+      return false;
+
+    case LPRN:
+      if (record->event.pressed) {
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
+        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+          SEND_STRING("<");
+        } else {
+          SEND_STRING("(");
+        }
+        register_mods(mods);  // Restore mods.
+      }
+      return false;
+
+    case RPRN:
+      if (record->event.pressed) {
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
+        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+          SEND_STRING(">");
+        } else {
+          SEND_STRING(")");
+        }
+        register_mods(mods);  // Restore mods.
       }
       return false;
 
@@ -105,7 +134,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
     case YUHSUAN:  // types Yu-Hsuan
       if (record->event.pressed) {
-        SEND_STRING("Yu-Hsuan");
+        if (get_mods() & MOD_MASK_SHIFT) {
+          SEND_STRING("Yu-Hsuan");
+        } else {
+          SEND_STRING("yuhsuan");
+        }
       }
       return false;
 
@@ -125,18 +158,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
       }
       return false;
 
-    case TRTLLM_SERVE:
+    case SGLANG:  // types SGLang when shift is pressed, else types sglang
       if (record->event.pressed) {
-        SEND_STRING("trtllm-serve");
+        if (get_mods() & MOD_MASK_SHIFT) {
+          SEND_STRING("SGLang");
+        } else {
+          SEND_STRING("sglang");
+        }
       }
       return false;
-
-    case TRTLLM_BENCH:
-      if (record->event.pressed) {
-        SEND_STRING("trtllm-bench");
-      }
-      return false;
-
   }
 
   return true;

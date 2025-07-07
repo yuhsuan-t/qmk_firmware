@@ -18,8 +18,9 @@ enum custom_keycodes {
   YUHSUAN,
   THANKS,
   TRTLLM,
-  TRTLLM_SERVE,
-  TRTLLM_BENCH,
-  UDRSCR,
+  SGLANG,
+  MINUS,
+  LPRN,
+  RPRN,
   LOGOUT,
 };

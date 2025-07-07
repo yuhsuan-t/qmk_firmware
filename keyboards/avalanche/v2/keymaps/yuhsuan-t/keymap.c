@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 /*
-qmk compile -kb avalanche/v2 -km ffxiv
-qmk flash -kb avalanche/v2 -km ffxiv
+qmk compile -kb avalanche/v2 -km yuhsuan-t
+qmk flash -kb avalanche/v2 -km yuhsuan-t
 */
 
 /*
@@ -57,6 +57,7 @@ enum layer {
 #define MO_UTIL MO(_UTIL)
 #define EQL_NUM LT(_NUMPAD, KC_EQL)
 #define EN_NUM LT(_NUMPAD, KC_ENT)
+#define ESC_NUM LT(_NUMPAD, KC_ESC)
 #define MO_NAV MO(_NAV)
 #define MO_NUM MO(_NUMPAD)
 // #define TG_NUM TG(_NUMPAD)
@@ -72,11 +73,11 @@ enum layer {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_HANDS_DOWN] = LAYOUT(
-                 KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSLS,
-                 KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
-        XXXXXXX, KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    LOGOUT,  TG_FF14, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_GRV,
-                 KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RBRC,
-                                   KC_LGUI, ALT_TAB, MO_UTIL, SPC_NAV, EN_NUM,  MO_NUM,  MO_NAV,  MIN_UTL, XXXXXXX, XXXXXXX
+                 ALT_TAB, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    XXXXXXX,
+                 KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_GRV,
+        KC_F5,   KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    LOGOUT,  TG_FF14, KC_H,    KC_J,    KC_K,    KC_L,    KC_SLSH, KC_COLN, XXXXXXX,
+                 KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SCLN, KC_PIPE,
+                                   KC_LGUI, ESC_NUM, MO_UTIL, SPC_NAV, KC_ENT,  MINUS,  MO_NAV,  KC_UNDS, XXXXXXX, XXXXXXX
     ),
     [_NAV] = LAYOUT(
                  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -87,17 +88,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_UTIL] = LAYOUT(
                  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                 _______, XXXXXXX, SELWORD, XXXXXXX, XXXXXXX, SAVE,                      SAVE,    XXXXXXX, XXXXXXX, SELWORD, XXXXXXX, XXXXXXX,
-        _______, _______, XXXXXXX, UNDO,    CUT,     COPY,    PASTE,   _______, _______, PASTE,   COPY,    CUT,     UNDO,    XXXXXXX, XXXXXXX, XXXXXXX,
-                 _______, KC_PSCR, XXXXXXX, XXXXXXX, CPLINE,  PLINE,   _______, _______, PLINE,   CPLINE,  XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX,
+                 _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SAVE,                      SAVE,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        _______, _______, XXXXXXX, XXXXXXX, CUT,     COPY,    PASTE,   _______, _______, PASTE,   COPY,    CUT,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                 _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
     [_NUMPAD] = LAYOUT(
                  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                 _______, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   XXXXXXX,                   XXXXXXX, KC_7,    KC_8,    KC_9,    UDRSCR,  XXXXXXX,
-        _______, _______, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   XXXXXXX, _______, _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_EQL,  KC_MINS, XXXXXXX,
-                 XXXXXXX, KC_P0,   KC_P1,   KC_P2,   KC_P3,   XXXXXXX, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_SLSH, XXXXXXX,
-                                   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+                 _______, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   XXXXXXX,                   KC_EQL,  KC_P7,   KC_P8,   KC_P9,   KC_ASTR, KC_PLUS,
+        _______, _______, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   XXXXXXX, _______, _______, KC_PDOT, KC_P4,   KC_P5,   KC_P6,   KC_PSLS, KC_COLN, XXXXXXX,
+                 XXXXXXX, KC_P0,   KC_P1,   KC_P2,   KC_P3,   XXXXXXX, _______, _______, KC_P0,   KC_P1,   KC_P2,   KC_P3,   XXXXXXX, XXXXXXX,
+                                   _______, _______, _______, _______, _______, KC_PMNS, _______, KC_UNDS, _______, _______
     ),
     [_FFXIV] = LAYOUT(
                  KC_ESC , XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ESC,

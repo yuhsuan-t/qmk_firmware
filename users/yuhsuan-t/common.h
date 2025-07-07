@@ -16,6 +16,7 @@ enum custom_keycodes {
   PLINE,
   YTSENG,
   YUHSUAN,
+  ID,
   THANKS,
   TRTLLM,
   SGLANG,

@@ -13,11 +13,17 @@ const uint16_t PROGMEM lquot[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM rquot[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM lprn[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM rprn[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM exclam[] = {KC_X, KC_M, COMBO_END};
+const uint16_t PROGMEM exclam[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM at[] = {KC_A, KC_T, COMBO_END};
-const uint16_t PROGMEM hash[] = {KC_H, KC_A, COMBO_END};
+const uint16_t PROGMEM hash[] = {KC_H, KC_S, COMBO_END};
 const uint16_t PROGMEM dollar[] = {KC_D, KC_L, COMBO_END};
 const uint16_t PROGMEM percent[] = {KC_P, KC_C, COMBO_END};
+const uint16_t PROGMEM circumflex[] = {KC_C, KC_F, COMBO_END};
+const uint16_t PROGMEM ampersand[] = {KC_A, KC_M, COMBO_END};
+const uint16_t PROGMEM tilde[] = {KC_T, KC_D, COMBO_END};
+const uint16_t PROGMEM backslash[] = {KC_B, KC_S, COMBO_END};
+const uint16_t PROGMEM plus[] = {KC_P, KC_L, COMBO_END};
+const uint16_t PROGMEM id[] = {KC_I, KC_D, COMBO_END};
 
 enum combo_events {
     COMBO_YTSENG,
@@ -36,6 +42,12 @@ enum combo_events {
     COMBO_HASH,
     COMBO_DOLLAR,
     COMBO_PERCENT,
+    COMBO_CIRCUMFLEX,
+    COMBO_AMPERSAND,
+    COMBO_TILDE,
+    COMBO_BACKSLASH,
+    COMBO_PLUS,
+    COMBO_ID,
 };
 
 combo_t key_combos[] = {
@@ -55,4 +67,10 @@ combo_t key_combos[] = {
     [COMBO_HASH] = COMBO(hash, KC_HASH),
     [COMBO_DOLLAR] = COMBO(dollar, KC_DLR),
     [COMBO_PERCENT] = COMBO(percent, KC_PERC),
+    [COMBO_CIRCUMFLEX] = COMBO(circumflex, KC_CIRC),
+    [COMBO_AMPERSAND] = COMBO(ampersand, KC_AMPR),
+    [COMBO_TILDE] = COMBO(tilde, KC_TILD),
+    [COMBO_BACKSLASH] = COMBO(backslash, KC_BSLS),
+    [COMBO_PLUS] = COMBO(plus, KC_PLUS),
+    [COMBO_ID] = COMBO(id, ID),
 };

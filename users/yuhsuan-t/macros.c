@@ -128,43 +128,71 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
 
     case YTSENG:  // types ytseng
       if (record->event.pressed) {
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
         SEND_STRING("ytseng");
+        register_mods(mods);  // Restore mods.
+      }
+      return false;
+
+    case ID:  // types ym31433
+      if (record->event.pressed) {
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
+        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
+          SEND_STRING("ym31433buy");
+        } else {
+          SEND_STRING("ym31433");
+        }
+        register_mods(mods);  // Restore mods.
       }
       return false;
 
     case YUHSUAN:  // types Yu-Hsuan
       if (record->event.pressed) {
-        if (get_mods() & MOD_MASK_SHIFT) {
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
+        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
           SEND_STRING("Yu-Hsuan");
         } else {
           SEND_STRING("yuhsuan");
         }
+        register_mods(mods);  // Restore mods.
       }
       return false;
 
     case THANKS:  // types Thanks!
       if (record->event.pressed) {
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
         SEND_STRING("Thanks!");
+        register_mods(mods);  // Restore mods.
       }
       return false;
 
     case TRTLLM:  // types TRTLLM when shift is pressed, else types trtllm
       if (record->event.pressed) {
-        if (get_mods() & MOD_MASK_SHIFT) {
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
+        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
           SEND_STRING("TRTLLM");
         } else {
           SEND_STRING("trtllm");
         }
+        register_mods(mods);  // Restore mods.
       }
       return false;
 
     case SGLANG:  // types SGLang when shift is pressed, else types sglang
       if (record->event.pressed) {
-        if (get_mods() & MOD_MASK_SHIFT) {
+        clear_oneshot_mods();  // Temporarily disable mods.
+        unregister_mods(MOD_MASK_CSAG);
+        if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
           SEND_STRING("SGLang");
         } else {
           SEND_STRING("sglang");
         }
+        register_mods(mods);  // Restore mods.
       }
       return false;
   }
