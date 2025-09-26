@@ -51,13 +51,9 @@ enum layer {
 };
 
 // Layer toggle
-#define UDS_NAV LT(_NAV, UDRSCR)
 #define SPC_NAV LT(_NAV, KC_SPC)
-#define MIN_UTL LT(_UTIL, KC_MINS)
+#define ESC_NAV LT(_NAV, KC_ESC)
 #define MO_UTIL MO(_UTIL)
-#define EQL_NUM LT(_NUMPAD, KC_EQL)
-#define EN_NUM LT(_NUMPAD, KC_ENT)
-#define ESC_NUM LT(_NUMPAD, KC_ESC)
 #define MO_NAV MO(_NAV)
 #define MO_NUM MO(_NUMPAD)
 // #define TG_NUM TG(_NUMPAD)
@@ -77,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_GRV,
         KC_F5,   KC_LSFT, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    LOGOUT,  TG_FF14, KC_H,    KC_J,    KC_K,    KC_L,    KC_SLSH, KC_COLN, XXXXXXX,
                  KC_LCTL, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LALT, XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SCLN, KC_PIPE,
-                                   KC_LGUI, ESC_NUM, MO_UTIL, SPC_NAV, KC_ENT,  MINUS,  MO_NAV,  KC_UNDS, XXXXXXX, XXXXXXX
+                                   KC_LGUI, ESC_NAV, MO_UTIL, MO_NUM,  KC_ENT,  MO_NAV,  KC_SPC,  KC_UNDS, MINUS,   XXXXXXX
     ),
     [_NAV] = LAYOUT(
                  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -98,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  _______, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   XXXXXXX,                   KC_EQL,  KC_P7,   KC_P8,   KC_P9,   KC_ASTR, KC_PLUS,
         _______, _______, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   XXXXXXX, _______, _______, KC_PDOT, KC_P4,   KC_P5,   KC_P6,   KC_PSLS, KC_COLN, XXXXXXX,
                  XXXXXXX, KC_P0,   KC_P1,   KC_P2,   KC_P3,   XXXXXXX, _______, _______, KC_P0,   KC_P1,   KC_P2,   KC_P3,   XXXXXXX, XXXXXXX,
-                                   _______, _______, _______, _______, _______, KC_PMNS, _______, KC_UNDS, _______, _______
+                                   _______, _______, _______, _______, _______, _______, KC_SPC,  KC_UNDS, KC_PMNS, _______
     ),
     [_FFXIV] = LAYOUT(
                  KC_ESC , XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ESC,
@@ -111,11 +107,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_HANDS_DOWN] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_NAV]        = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_UTIL]       = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_NUMPAD]     = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
-    [_FFXIV]      = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [_HANDS_DOWN] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
+    [_NAV]        = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
+    [_UTIL]       = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
+    [_NUMPAD]     = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
+    [_FFXIV]      = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
 };
 #endif
 // void encoder_update_user(uint8_t index, bool clockwise) {
