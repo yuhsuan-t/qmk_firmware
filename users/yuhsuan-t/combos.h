@@ -9,8 +9,8 @@ const uint16_t PROGMEM trtllm[] = {KC_T, KC_L, COMBO_END};
 const uint16_t PROGMEM sglang[] = {KC_S, KC_G, COMBO_END};
 const uint16_t PROGMEM lbrc[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM rbrc[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM lquot[] = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM rquot[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM dquot[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM squot[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM lprn[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM rprn[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM lt[] = {KC_P1, KC_P2, COMBO_END};
@@ -37,8 +37,8 @@ enum combo_events {
     COMBO_SGLANG,
     COMBO_LBRC,
     COMBO_RBRC,
-    COMBO_LQUOT,
-    COMBO_RQUOT,
+    COMBO_DQUOT,
+    COMBO_SQUOT,
     COMBO_LPRN,
     COMBO_RPRN,
     COMBO_LT,
@@ -66,8 +66,8 @@ combo_t key_combos[] = {
     [COMBO_SGLANG] = COMBO(sglang, SGLANG),
     [COMBO_LBRC] = COMBO(lbrc, KC_LBRC),
     [COMBO_RBRC] = COMBO(rbrc, KC_RBRC),
-    [COMBO_LQUOT] = COMBO(lquot, KC_QUOT),
-    [COMBO_RQUOT] = COMBO(rquot, KC_QUOT),
+    [COMBO_DQUOT] = COMBO(dquot, KC_DQUO),
+    [COMBO_SQUOT] = COMBO(squot, KC_QUOT),
     [COMBO_LPRN] = COMBO(lprn, LPRN),
     [COMBO_RPRN] = COMBO(rprn, RPRN),
     [COMBO_LT] = COMBO(lt, KC_LT),
