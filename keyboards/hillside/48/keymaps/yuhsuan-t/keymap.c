@@ -21,11 +21,12 @@ enum layer {
 #define MO_NUM MO(_NUMPAD)
 
 // utils
-#define CUT C(KC_X)
-#define COPY C(KC_C)
-#define PASTE C(KC_V)
-#define SAVE C(KC_S)
-#define UNDO C(KC_Z)
+#define CUT LGUI(KC_X)
+#define COPY LGUI(KC_C)
+#define PASTE LGUI(KC_V)
+#define SAVE LGUI(KC_S)
+#define UNDO LGUI(KC_Z)
+#define FIND LGUI(KC_F)
 
 // byobu macros
 // vertical split
@@ -75,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_UTIL] = LAYOUT(
-                 _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, SAVE,                      SAVE,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                 _______, XXXXXXX, XXXXXXX, XXXXXXX, FIND,    SAVE,                      SAVE,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                  _______, XXXXXXX, BY_NWIN, CUT,     COPY,    PASTE,                     PASTE,   COPY,    CUT,     BY_NWIN, XXXXXXX, XXXXXXX,
                  _______, XXXXXXX, BY_RNWN, BY_FPNE, BY_CLYT, BY_HSPL, _______, _______, BY_HSPL, BY_CLYT, BY_FPNE, BY_RNWN, XXXXXXX, XXXXXXX,
                                    _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
