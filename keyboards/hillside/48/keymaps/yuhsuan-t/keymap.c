@@ -26,6 +26,7 @@ enum layer {
 #define PASTE LGUI(KC_V)
 #define SAVE LGUI(KC_S)
 #define UNDO LGUI(KC_Z)
+#define REDO S(LGUI(KC_Z))
 #define FIND LGUI(KC_F)
 
 // byobu macros
@@ -76,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                    _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
     ),
     [_UTIL] = LAYOUT(
-                 _______, XXXXXXX, XXXXXXX, XXXXXXX, FIND,    SAVE,                      SAVE,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                 _______, XXXXXXX, REDO   , UNDO   , FIND,    SAVE,                      SAVE,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                  _______, XXXXXXX, BY_NWIN, CUT,     COPY,    PASTE,                     PASTE,   COPY,    CUT,     BY_NWIN, XXXXXXX, XXXXXXX,
                  _______, XXXXXXX, BY_RNWN, BY_FPNE, BY_CLYT, BY_HSPL, _______, _______, BY_HSPL, BY_CLYT, BY_FPNE, BY_RNWN, XXXXXXX, XXXXXXX,
                                    _______, _______, _______, _______, _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
